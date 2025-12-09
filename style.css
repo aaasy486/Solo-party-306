@@ -1,8 +1,6 @@
 /* 기본 리셋 및 폰트 설정 */
 body {
-    /* 기본 배경 설정 (PC에서는 바탕화면 느낌, 모바일에서는 흰색으로 전환될 예정) */
     background-color: #e8e8e8;
-    /* 애플 기기 기본 폰트(SF Pro)와 유사한 폰트 사용 */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -12,16 +10,14 @@ body {
     min-height: 100vh;
 }
 
-.desktop-background {
-    width: 100%;
-    height: 100%;
-}
+/* ---------------------------------- */
+/* 1. PC (아이맥 윈도우) 스타일 */
+/* ---------------------------------- */
 
-/* 2. 맥OS 윈도우 컨테이너 스타일 (PC 기본) */
 .mac-window {
     width: 90%;
     max-width: 800px;
-    background-color: #f7f7f7; 
+    background-color: #ffffff; 
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
     overflow: hidden;
@@ -30,7 +26,6 @@ body {
     flex-direction: column;
 }
 
-/* 2.1. 창 상단 타이틀 바 */
 .window-header {
     background-color: #e0e0e0;
     padding: 8px 15px;
@@ -51,9 +46,9 @@ body {
     display: inline-block;
 }
 
-.control-btn.close { background-color: #ff5f56; } /* 빨강 */
-.control-btn.minimize { background-color: #ffbd2e; } /* 노랑 */
-.control-btn.maximize { background-color: #27c93f; } /* 초록 */
+.control-btn.close { background-color: #ff5f56; } 
+.control-btn.minimize { background-color: #ffbd2e; } 
+.control-btn.maximize { background-color: #27c93f; } 
 
 .window-title {
     flex-grow: 1;
@@ -62,18 +57,17 @@ body {
     color: #444;
 }
 
-/* 2.2. 창 내부 콘텐츠 영역 */
 .window-content {
     display: flex;
     flex-grow: 1;
     min-height: 400px;
 }
 
-/* 왼쪽: 사이드바 (Finder 스타일) */
+/* 사이드바 스타일 */
 .sidebar {
     width: 180px;
     padding: 15px 0;
-    background-color: #ececec;
+    background-color: #fcfcfc; 
     border-right: 1px solid #d0d0d0;
     flex-shrink: 0;
 }
@@ -93,18 +87,17 @@ body {
     margin-right: 5px;
 }
 
-/* 사이드바 Active 스타일 */
+/* 사이드바 Active 스타일 (핑크 포인트) */
 .nav-item.active {
-    background-color: #cfdcf7; /* 애플 파란색 계열 배경 */
-    color: #000;
+    background-color: #f7e0e7; /* 연한 핑크 배경 */
+    color: #e55f8b; /* 핑크 텍스트 */
 }
 
 .nav-item span {
     margin-left: 5px;
-    font-weight: 600; /* 세미 볼드 */
+    font-weight: 600; 
 }
 
-/* 오른쪽: 메인 콘텐츠 영역 */
 .main-content {
     padding: 25px;
     flex-grow: 1;
@@ -112,23 +105,7 @@ body {
     overflow-y: auto; 
 }
 
-.content-section {
-    display: none; 
-}
-
-.content-section.active {
-    display: block; 
-}
-
-h2 {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #1c1c1e; 
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-/* 프로스트 글라스 효과 박스 */
+/* 프로스트 글라스 효과 박스 (PC에서만 유지) */
 .frosted-glass {
     background-color: rgba(255, 255, 255, 0.7); 
     backdrop-filter: blur(8px); 
@@ -138,32 +115,19 @@ h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.text-box p {
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
+/* 하트 포인트 적용 */
 .highlight-text {
     font-weight: 700;
-    color: #007aff; 
+    color: #b94b92; /* 차분한 퍼플 */
     text-align: center;
     margin-top: 20px;
 }
 
-/* Q&A 아코디언 스타일 */
+/* Q&A 아코디언 하트 아이콘 */
 .qna-list {
     padding: 15px;
     border-radius: 10px;
     background-color: #fcfcfc;
-}
-
-.qna-item {
-    border-bottom: 1px solid #eee;
-    margin-bottom: 5px;
-}
-
-.qna-item:last-child {
-    border-bottom: none;
 }
 
 .qna-q {
@@ -178,21 +142,21 @@ h2 {
 }
 
 .qna-q::before {
-    content: '▶︎'; 
-    font-size: 0.7em;
-    color: #007aff;
+    content: '♥'; 
+    font-size: 1em;
+    color: #e55f8b; /* 핑크 하트 */
     position: absolute;
     left: 0;
-    top: 12px;
-    transition: transform 0.2s;
+    top: 10px; 
+    transition: color 0.2s;
 }
 
 .qna-item[open] .qna-q {
-    color: #007aff;
+    color: #b94b92; /* 퍼플 텍스트 */
 }
 
 .qna-item[open] .qna-q::before {
-    transform: rotate(90deg);
+    color: #b94b92; /* 열렸을 때 퍼플 하트 */
 }
 
 .qna-a {
@@ -201,11 +165,7 @@ h2 {
     font-size: 0.95em;
 }
 
-/* Links 섹션 CTA 버튼 (iOS 캡슐 스타일) */
-.links-container {
-    padding: 25px; 
-}
-
+/* CTA 버튼 (핑크/퍼플) */
 .cta-button {
     display: flex;
     flex-direction: column;
@@ -217,18 +177,18 @@ h2 {
     font-weight: 700;
     font-size: 1.1em;
     text-decoration: none;
-    border-radius: 25px; /* 캡슐 형태 */
+    border-radius: 25px; 
     transition: background-color 0.2s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button.primary {
-    background-color: #007aff; /* 애플 블루 */
+    background-color: #e55f8b; /* 핑크 */
     color: white;
 }
 
 .cta-button.primary:hover {
-    background-color: #005bb5;
+    background-color: #b94b92; /* 퍼플로 hover */
 }
 
 .status-badge {
@@ -266,7 +226,6 @@ h2 {
     font-weight: 500;
 }
 
-/* 2.3. 하단 푸터 */
 .window-footer {
     padding: 10px 15px;
     text-align: center;
@@ -276,63 +235,61 @@ h2 {
     border-top: 1px solid #d0d0d0;
 }
 
-/* ---------------------------------------------------- */
-/* 4. 미디어 쿼리 (모바일 화면 최적화) */
-/* ---------------------------------------------------- */
+/* ---------------------------------- */
+/* 2. 모바일 (Mobile First) 스타일 */
+/* ---------------------------------- */
 
 @media (max-width: 768px) {
     /* 1. PC 윈도우 스타일 해제 및 전체 화면 사용 */
     .mac-window {
         width: 100%;
         max-width: none;
-        height: 100vh; /* 화면 전체 높이 사용 */
+        height: 100vh;
         border-radius: 0;
         box-shadow: none;
         margin: 0;
     }
     
     .desktop-background {
-        background-color: #ffffff; /* 모바일은 흰색 배경 사용 */
+        background-color: #ffffff; 
         height: 100vh;
     }
 
-    /* 2. 창 제목/컨트롤 버튼 숨기기 (모바일 앱 느낌) */
-    .window-header {
+    /* 2. PC 요소 숨기기 */
+    .window-header, .window-footer {
         display: none;
     }
-    
-    /* 3. 콘텐츠 영역 (사이드바와 메인 콘텐츠 상하 배치) */
+
+    /* 3. 콘텐츠 영역 (세로 배치) */
     .window-content {
-        flex-direction: column; /* 세로로 배치 */
+        flex-direction: column; 
         min-height: auto;
     }
 
-    /* 4. 사이드바를 상단 탭 바로 변경 (모바일 탭 바 느낌) */
+    /* 4. 사이드바를 상단 탭 바로 변경 */
     .sidebar {
         width: 100%;
         padding: 0;
-        background-color: #f7f7f7;
+        background-color: #ffffff; /* 흰색 배경 */
         border-right: none;
-        border-bottom: 1px solid #d0d0d0;
-        display: flex; /* 가로로 나열 */
+        border-bottom: 1px solid #e0e0e0;
+        display: flex; 
         justify-content: space-around;
-        position: sticky; /* 상단에 고정 */
+        position: sticky; 
         top: 0;
         z-index: 10;
     }
     
     .nav-item {
-        flex-grow: 1; /* 가로 공간 균등 분할 */
+        flex-grow: 1; 
         justify-content: center;
         padding: 12px 10px;
         text-align: center;
-        border-radius: 0;
         border-bottom: 2px solid transparent; 
     }
     
-    /* 텍스트만 표시하고 아이콘 숨기기 (공간 절약) */
-    .nav-item .nav-icon {
-        display: none; 
+    .nav-icon {
+        display: none; /* 아이콘 숨기기 */
     }
     
     .nav-item span {
@@ -341,38 +298,35 @@ h2 {
         font-size: 1.05em;
     }
 
-    /* 탭 Active 시 밑줄 강조 */
+    /* 탭 Active 시 밑줄 강조 (핑크) */
     .nav-item.active {
         background-color: transparent;
-        border-bottom: 2px solid #007aff; /* 애플 블루 밑줄 */
-        color: #007aff;
+        border-bottom: 2px solid #e55f8b; /* 핑크 밑줄 */
+        color: #e55f8b;
     }
     
     .nav-item:hover {
-        background-color: #f0f0f0;
+        background-color: #f9f9f9;
     }
 
-    /* 5. 메인 콘텐츠 패딩 조정 */
+    /* 5. 메인 콘텐츠 및 프로스트 글라스 제거 */
     .main-content {
         padding: 20px;
         background-color: #ffffff;
-        min-height: calc(100vh - 50px); /* 탭바 높이 제외 */
+        min-height: calc(100vh - 50px); 
     }
     
-    /* 6. 푸터 숨기기 (모바일에서 불필요) */
-    .window-footer {
-        display: none;
+    .frosted-glass {
+        /* 모바일에서는 깔끔한 박스로 변경 */
+        background-color: #ffffff;
+        backdrop-filter: none;
+        border: 1px solid #f0f0f0; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 부유감만 유지 */
+        /* 모바일에서 Q&A 리스트는 박스 스타일 유지 */
     }
 
-    /* 7. CTA 버튼 크기 조정 */
-    .cta-button {
-        padding: 18px 20px;
-        font-size: 1.2em;
-        border-radius: 12px;
-    }
-    
     .links-container {
-        padding: 0; /* 모바일에서 Links 컨테이너 패딩 제거 */
+        padding: 0; 
         box-shadow: none;
         backdrop-filter: none;
         border: none;
@@ -382,5 +336,6 @@ h2 {
     .qna-list {
         background-color: transparent;
         padding: 0;
+        box-shadow: none; /* Q&A 리스트 모바일에서 그림자 제거 */
     }
 }
